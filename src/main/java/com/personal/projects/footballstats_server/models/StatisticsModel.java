@@ -44,6 +44,9 @@ public class StatisticsModel {
     @Column(name = "Red_cards")
     private Integer redCards;
 
+    @OneToOne(mappedBy = "statistics")
+    private TeamModel team;
+
     public Long getId() {
         return id;
     }
@@ -158,6 +161,15 @@ public class StatisticsModel {
 
     public StatisticsModel setRedCards(Integer redCards) {
         this.redCards = redCards;
+        return this;
+    }
+
+    public TeamModel getTeam() {
+        return team;
+    }
+
+    public StatisticsModel setTeam(TeamModel team) {
+        this.team = team;
         return this;
     }
 }
