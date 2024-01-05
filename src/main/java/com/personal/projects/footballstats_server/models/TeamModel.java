@@ -1,8 +1,6 @@
 package com.personal.projects.footballstats_server.models;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class TeamModel {
@@ -31,6 +29,12 @@ public class TeamModel {
     @Column(name = "Club_api_id")
     private Long apiId;
 
+    @Column(name = "Points")
+    private Integer pointsInLeague;
+
+    @Column(name = "Standings")
+    private Integer standingsInLeague;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Country_id", nullable = false)
     private CountryModel country;
@@ -42,6 +46,10 @@ public class TeamModel {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "League_id", nullable = false)
     private LeagueModel league;
+
+    @OneToOne
+    @JoinColumn(name = "Statistics_id", referencedColumnName = "id")
+    private StatisticsModel statistics;
 
     public Long getId() {
         return id;
@@ -130,6 +138,33 @@ public class TeamModel {
 
     public TeamModel setLeague(LeagueModel league) {
         this.league = league;
+        return this;
+    }
+
+    public Integer getPointsInLeague() {
+        return pointsInLeague;
+    }
+
+    public TeamModel setPointsInLeague(Integer pointsInLeague) {
+        this.pointsInLeague = pointsInLeague;
+        return this;
+    }
+
+    public Integer getStandingsInLeague() {
+        return standingsInLeague;
+    }
+
+    public TeamModel setStandingsInLeague(Integer standingsInLeague) {
+        this.standingsInLeague = standingsInLeague;
+        return this;
+    }
+
+    public StatisticsModel getStatistics() {
+        return statistics;
+    }
+
+    public TeamModel setStatistics(StatisticsModel statistics) {
+        this.statistics = statistics;
         return this;
     }
 }
