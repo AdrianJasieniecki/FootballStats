@@ -3,6 +3,7 @@ package com.personal.projects.footballstats_server.models;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "STATS")
 public class StatisticsModel {
 
     @Id
@@ -15,15 +16,10 @@ public class StatisticsModel {
     private String form;
 
     @Embedded
-    @Column(name = "Fixtures")
     private FixturesModel fixtures;
 
     @Embedded
-    @Column(name = "Goals_scored")
-    private GoalsModel goalsScored;
-    @Embedded
-    @Column(name = "Goals_conceded")
-    private GoalsModel goalsConceded;
+    private GoalsModel goals;
 
     @Column(name = "Total_clean_sheets")
     private Integer totalCleanSheets;
@@ -43,6 +39,10 @@ public class StatisticsModel {
     private Integer yellowCards;
     @Column(name = "Red_cards")
     private Integer redCards;
+    @Column(name = "Average_yellow_cards_per_game")
+    private Double averageYellowCardsPerGame;
+    @Column(name = "Average_red_cards_per_game")
+    private Double averageRedCardsPerGame;
 
     @OneToOne(mappedBy = "statistics")
     private TeamModel team;
@@ -74,21 +74,12 @@ public class StatisticsModel {
         return this;
     }
 
-    public GoalsModel getGoalsScored() {
-        return goalsScored;
+    public GoalsModel getGoals() {
+        return goals;
     }
 
-    public StatisticsModel setGoalsScored(GoalsModel goalsScored) {
-        this.goalsScored = goalsScored;
-        return this;
-    }
-
-    public GoalsModel getGoalsConceded() {
-        return goalsConceded;
-    }
-
-    public StatisticsModel setGoalsConceded(GoalsModel goalsConceded) {
-        this.goalsConceded = goalsConceded;
+    public StatisticsModel setGoals(GoalsModel goalsScored) {
+        this.goals = goalsScored;
         return this;
     }
 
@@ -170,6 +161,24 @@ public class StatisticsModel {
 
     public StatisticsModel setTeam(TeamModel team) {
         this.team = team;
+        return this;
+    }
+
+    public Double getAverageYellowCardsPerGame() {
+        return averageYellowCardsPerGame;
+    }
+
+    public StatisticsModel setAverageYellowCardsPerGame(Double averageYellowCardsPerGame) {
+        this.averageYellowCardsPerGame = averageYellowCardsPerGame;
+        return this;
+    }
+
+    public Double getAverageRedCardsPerGame() {
+        return averageRedCardsPerGame;
+    }
+
+    public StatisticsModel setAverageRedCardsPerGame(Double averageRedCardsPerGame) {
+        this.averageRedCardsPerGame = averageRedCardsPerGame;
         return this;
     }
 }

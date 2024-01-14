@@ -3,6 +3,7 @@ package com.personal.projects.footballstats_server.models;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "TEAM")
 public class TeamModel {
 
     @Id
@@ -48,7 +49,7 @@ public class TeamModel {
     private LeagueModel league;
 
     @OneToOne
-    @JoinColumn(name = "Statistics_id", referencedColumnName = "id")
+    @JoinColumn(name = "Team_id", referencedColumnName = "id")
     private StatisticsModel statistics;
 
     public Long getId() {
