@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "VENUE")
 public class VenueModel {
 
     @Id
@@ -22,8 +23,8 @@ public class VenueModel {
     private Long capacity;
     @Column(name = "Surface")
     private String surface;
-    @Column(name = "Image_id")
-    private Long imageDataId;
+    @Column(name = "Image_URL")
+    private String imageURL;
     @Column(name = "Api_id")
     private Long apiId;
     @OneToMany(mappedBy = "venue")
@@ -83,12 +84,12 @@ public class VenueModel {
         return this;
     }
 
-    public Long getImageDataId() {
-        return imageDataId;
+    public String getImageURL() {
+        return imageURL;
     }
 
-    public VenueModel setImageDataId(Long imageDataId) {
-        this.imageDataId = imageDataId;
+    public VenueModel setImageURL(String imageURL) {
+        this.imageURL = imageURL;
         return this;
     }
 

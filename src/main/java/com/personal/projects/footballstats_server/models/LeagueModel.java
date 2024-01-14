@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "LEAGUE")
 public class LeagueModel {
 
     @Id

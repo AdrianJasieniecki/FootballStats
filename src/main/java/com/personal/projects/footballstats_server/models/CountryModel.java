@@ -5,12 +5,13 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "COUNTRY")
 public class CountryModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "country_generator")
     @SequenceGenerator(name = "country_generator", sequenceName = "country_seq", allocationSize = 1)
-    @Column(name = "country_id", nullable = false)
+    @Column(name = "Country_id", nullable = false)
     private Long id;
 
     @Column(name = "Country_name")

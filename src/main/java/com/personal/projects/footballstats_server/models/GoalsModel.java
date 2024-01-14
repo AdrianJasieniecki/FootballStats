@@ -2,77 +2,142 @@ package com.personal.projects.footballstats_server.models;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Embeddable
 public class GoalsModel {
 
-    @Column(name = "Total_goals")
-    private Integer totalGoals;
-    @Column(name = "Home_goals")
-    private Integer homeGoals;
-    @Column(name = "Away_goals")
-    private Integer awayGoals;
+    @Column(name = "Total_goals_scored")
+    private Integer totalGoalsScored;
+    @Column(name = "Home_goals_scored")
+    private Integer homeGoalsScored;
+    @Column(name = "Away_goals_scored")
+    private Integer awayGoalsScored;
 
-    @Column(name = "Average_total_goals")
-    private Integer averageTotalGoals;
-    @Column(name = "Average_home_goals")
-    private Integer averageHomeGoals;
-    @Column(name = "Average_away_goals")
-    private Integer averageAwayGoals;
+    @Column(name = "Average_total_goals_scored")
+    private Double averageTotalGoalsScored;
+    @Column(name = "Average_home_goals_scored")
+    private Double averageHomeGoalsScored;
+    @Column(name = "Average_away_goals_scored")
+    private Double averageAwayGoalsScored;
 
-    public Integer getTotalGoals() {
-        return totalGoals;
+    @Column(name = "Total_goals_conceded")
+    private Integer totalGoalsConceded;
+    @Column(name = "Home_goals_conceded")
+    private Integer homeGoalsConceded;
+    @Column(name = "Away_goals_conceded")
+    private Integer awayGoalsConceded;
+
+    @Column(name = "Average_total_goals_conceded")
+    private Double averageTotalGoalsConceded;
+    @Column(name = "Average_home_goals_conceded")
+    private Double averageHomeGoalsConceded;
+    @Column(name = "Average_away_goals_conceded")
+    private Double averageAwayGoalsConceded;
+
+    public Integer getTotalGoalsScored() {
+        return totalGoalsScored;
     }
 
-    public GoalsModel setTotalGoals(Integer totalGoals) {
-        this.totalGoals = totalGoals;
+    public GoalsModel setTotalGoalsScored(Integer totalGoalsScored) {
+        this.totalGoalsScored = totalGoalsScored;
         return this;
     }
 
-    public Integer getHomeGoals() {
-        return homeGoals;
+    public Integer getHomeGoalsScored() {
+        return homeGoalsScored;
     }
 
-    public GoalsModel setHomeGoals(Integer homeGoals) {
-        this.homeGoals = homeGoals;
+    public GoalsModel setHomeGoalsScored(Integer homeGoalsScored) {
+        this.homeGoalsScored = homeGoalsScored;
         return this;
     }
 
-    public Integer getAwayGoals() {
-        return awayGoals;
+    public Integer getAwayGoalsScored() {
+        return awayGoalsScored;
     }
 
-    public GoalsModel setAwayGoals(Integer awayGoals) {
-        this.awayGoals = awayGoals;
+    public GoalsModel setAwayGoalsScored(Integer awayGoalsScored) {
+        this.awayGoalsScored = awayGoalsScored;
         return this;
     }
 
-    public Integer getAverageTotalGoals() {
-        return averageTotalGoals;
+    public Double getAverageTotalGoalsScored() {
+        return averageTotalGoalsScored;
     }
 
-    public GoalsModel setAverageTotalGoals(Integer averageTotalGoals) {
-        this.averageTotalGoals = averageTotalGoals;
+    public GoalsModel setAverageTotalGoalsScored(Double averageTotalGoalsScored) {
+        this.averageTotalGoalsScored = averageTotalGoalsScored;
         return this;
     }
 
-    public Integer getAverageHomeGoals() {
-        return averageHomeGoals;
+    public Double getAverageHomeGoalsScored() {
+        return averageHomeGoalsScored;
     }
 
-    public GoalsModel setAverageHomeGoals(Integer averageHomeGoals) {
-        this.averageHomeGoals = averageHomeGoals;
+    public GoalsModel setAverageHomeGoalsScored(Double averageHomeGoalsScored) {
+        this.averageHomeGoalsScored = averageHomeGoalsScored;
         return this;
     }
 
-    public Integer getAverageAwayGoals() {
-        return averageAwayGoals;
+    public Double getAverageAwayGoalsScored() {
+        return averageAwayGoalsScored;
     }
 
-    public GoalsModel setAverageAwayGoals(Integer averageAwayGoals) {
-        this.averageAwayGoals = averageAwayGoals;
+    public GoalsModel setAverageAwayGoalsScored(Double averageAwayGoalsScored) {
+        this.averageAwayGoalsScored = averageAwayGoalsScored;
         return this;
     }
 
+    public Integer getTotalGoalsConceded() {
+        return totalGoalsConceded;
+    }
+
+    public GoalsModel setTotalGoalsConceded(Integer totalGoalsConceded) {
+        this.totalGoalsConceded = totalGoalsConceded;
+        return this;
+    }
+
+    public Integer getHomeGoalsConceded() {
+        return homeGoalsConceded;
+    }
+
+    public GoalsModel setHomeGoalsConceded(Integer homeGoalsConceded) {
+        this.homeGoalsConceded = homeGoalsConceded;
+        return this;
+    }
+
+    public Integer getAwayGoalsConceded() {
+        return awayGoalsConceded;
+    }
+
+    public GoalsModel setAwayGoalsConceded(Integer awayGoalsConceded) {
+        this.awayGoalsConceded = awayGoalsConceded;
+        return this;
+    }
+
+    public Double getAverageTotalGoalsConceded() {
+        return averageTotalGoalsConceded;
+    }
+
+    public GoalsModel setAverageTotalGoalsConceded(Double averageTotalGoalsConceded) {
+        this.averageTotalGoalsConceded = averageTotalGoalsConceded;
+        return this;
+    }
+
+    public Double getAverageHomeGoalsConceded() {
+        return averageHomeGoalsConceded;
+    }
+
+    public GoalsModel setAverageHomeGoalsConceded(Double averageHomeGoalsConceded) {
+        this.averageHomeGoalsConceded = averageHomeGoalsConceded;
+        return this;
+    }
+
+    public Double getAverageAwayGoalsConceded() {
+        return averageAwayGoalsConceded;
+    }
+
+    public GoalsModel setAverageAwayGoalsConceded(Double averageAwayGoalsConceded) {
+        this.averageAwayGoalsConceded = averageAwayGoalsConceded;
+        return this;
+    }
 }

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+       https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+    <changeSet id="TICKET_1-1" author="Adrian Jasieniecki">
+        <preConditions onFail="WARN">
+            <not>
+                <tableExists tableName="COUNTRY"/>
+            </not>
+        </preConditions>
+        <createTable tableName="COUNTRY">
+            <column name="Country_id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="Country_name" type="varchar(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Country_code" type="varchar(4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Flag_URL" type="varchar(20000)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="TICKET_1-2" author="Adrian Jasieniecki">
+        <preConditions>
+            <not>
+                <tableExists tableName="LEAGUE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="LEAGUE">
+            <column name="League_id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="League_name" type="varchar(35)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Type" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Logo_URL" type="varchar(20000)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="TICKET_1-3" author="Adrian Jasieniecki">
+        <preConditions>
+            <not>
+                <tableExists tableName="STATS"/>
+            </not>
+        </preConditions>
+        <createTable tableName="STATS">
+            <column name="Stats_id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="Team_form" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Total_games_played" type="int"/>
+            <column name="Home_games_played" type="int"/>
+            <column name="Away_games_played" type="int"/>
+            <column name="Total_wins" type="int"/>
+            <column name="Home_wins" type="int"/>
+            <column name="Away_wins" type="int"/>
+            <column name="Total_draws" type="int"/>
+            <column name="Home_draws" type="int"/>
+            <column name="Away_draws" type="int"/>
+            <column name="Total_loses" type="int"/>
+            <column name="Home_loses" type="int"/>
+            <column name="Away_loses" type="int"/>
+            <column name="Total_goals_scored" type="int"/>
+            <column name="Home_goals_scored" type="int"/>
+            <column name="Away_goals_scored" type="int"/>
+            <column name="Average_total_goals_scored" type="number"/>
+            <column name="Average_home_goals_scored" type="number"/>
+            <column name="Average_away_goals_scored" type="number"/>
+            <column name="Total_goals_conceded" type="int"/>
+            <column name="Home_goals_conceded" type="int"/>
+            <column name="Away_goals_conceded" type="int"/>
+            <column name="Average_total_goals_conceded" type="number"/>
+            <column name="Average_home_goals_conceded" type="number"/>
+            <column name="Average_away_goals_conceded" type="number"/>
+            <column name="Total_clean_sheets" type="int"/>
+            <column name="Home_clean_sheets" type="int"/>
+            <column name="Away_clean_sheets" type="int"/>
+            <column name="Total_penalties" type="int"/>
+            <column name="Scored_penalties" type="int"/>
+            <column name="Missed_penalties" type="int"/>
+            <column name="Yellow_cards" type="int"/>
+            <column name="Red_cards" type="int"/>
+            <column name="Average_yellow_cards_per_game" type="number"/>
+            <column name="Average_red_cards_per_game" type="number"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="TICKET_1-4" author="Adrian Jasieniecki">
+        <preConditions>
+            <not>
+                <tableExists tableName="TEAM"/>
+            </not>
+        </preConditions>
+        <createTable tableName="TEAM">
+            <column name="Team_id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="Club_name" type="varchar(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Club_code" type="varchar(5)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Club_foundation_year" type="int"/>
+            <column name="Club_national" type="boolean"/>
+            <column name="Club_logo_URL" type="varchar(20000)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="Club_api_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Points" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Standings" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="TICKET_1-5" author="Adrian Jasieniecki">
+        <preConditions>
+            <not>
+                <tableExists tableName="VENUE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="VENUE">
+            <column name="Venue_id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="Name" type="varchar(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Address" type="varchar(25)"/>
+            <column name="City" type="varchar(25)"/>
+            <column name="Capacity" type="int"/>
+            <column name="Surface" type="varchar(35)"/>
+            <column name="Image_URL" type="varchar(20000)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="Api_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
