@@ -1,13 +1,8 @@
 package com.personal.projects.footballstats_server.communication;
 
-import com.personal.projects.footballstats_server.dtos.CountryDTO;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestClient;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class HTTPClient {
 
