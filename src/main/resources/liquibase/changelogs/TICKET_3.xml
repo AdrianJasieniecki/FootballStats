@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+       https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="TICKET_3" author="Adrian Jasieniecki">
+        <renameColumn tableName="COUNTRY" oldColumnName="Country_id" newColumnName="country_id"/>
+        <renameColumn tableName="COUNTRY" oldColumnName="Country_name" newColumnName="country_name"/>
+        <renameColumn tableName="COUNTRY" oldColumnName="Country_code" newColumnName="country_code"/>
+        <renameColumn tableName="COUNTRY" oldColumnName="Flag_URL" newColumnName="flag_url"/>
+    </changeSet>
+</databaseChangeLog>

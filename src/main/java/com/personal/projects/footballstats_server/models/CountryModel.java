@@ -11,16 +11,16 @@ public class CountryModel {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "country_generator")
     @SequenceGenerator(name = "country_generator", sequenceName = "country_seq", allocationSize = 1)
-    @Column(name = "Country_id", nullable = false)
+    @Column(name = "country_id", nullable = false)
     private Long id;
 
-    @Column(name = "Country_name")
+    @Column(name = "country_name")
     private String name;
 
-    @Column(name = "Country_code")
+    @Column(name = "country_code")
     private String code;
 
-    @Column(name = "Flag_URL")
+    @Column(name = "flag_url")
     private String flagURL;
 
     @OneToMany(mappedBy = "country")
