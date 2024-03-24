@@ -1,26 +1,37 @@
 package com.personal.projects.footballstats_server.communication;
 
-import org.apache.coyote.Response;
-import org.springframework.beans.factory.annotation.Value;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestClient;
 
-public class HTTPClient {
+import java.util.List;
+import java.util.Map;
 
-    private String url = "https://v3.football.api-sports.io";
+public class HTTPClient {
+    Logger logger = LoggerFactory.getLogger(HTTPClient.class);
+    private final String url = "https://v3.football.api-sports.io";
     private RestClient defaultRestClient;
-    @Value("${api.key}")
-    private String apiKey;
+//    @Value("${api.key}")
+    private final String apiKey = "12bda414abaac6d2698c8d2ebbb44789";
+    private final String apiName = "x-rapidapi-key";
 
     public HTTPClient() {
         this.defaultRestClient = RestClient.create();
     }
 
-    public void performRequestForCountries() {
-        Response response = defaultRestClient.get()
-                .uri(String.format("%s/countries", url))
+    public void performRequestForCountries(String method) {
+        Resp resp = defaultRestClient.get()
+                .uri(String.format("%s/%s", url, method))
+                .header(apiName, apiKey)
                 .retrieve()
-                .body(Response.class);
+                .body(Resp.class);
+        if (resp != null) {
+            List<Map<String, String>> responseList = resp.getResponse();
+            sendResponseToService(responseList);
+        }
+    }
 
+    public void sendResponseToService(List<Map<String, String>> response) {
 
     }
 }
