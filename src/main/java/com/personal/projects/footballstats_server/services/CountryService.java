@@ -33,10 +33,11 @@ public class CountryService {
     }
 
     public CountryModel addNewCountry(CountryModel countryModel) {
-        if(!countryRepository.existsById(countryModel.getId())) {
-            logger.debug("Adding new country = " + countryModel);
-            return countryRepository.save(countryModel);
-        } else return null;
+//        if(!countryRepository.existsById(countryModel.getId())) {
+//            logger.debug("Adding new country = " + countryModel);
+//            return countryRepository.save(countryModel);
+//        } else return null;
+        return countryRepository.save(countryModel);
     }
 
     public boolean deleteCountryById(Long id) {

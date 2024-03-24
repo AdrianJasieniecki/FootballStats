@@ -5,6 +5,9 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
 
-    <include relativeToChangelogFile="true" file="changelogs/TICKET_1.xml"/>
-    <include relativeToChangelogFile="true" file="changelogs/TICKET_2.xml"/>
+    <changeSet id="TICKET_2" author="Adrian Jasieniecki">
+        <sql>
+            CREATE SEQUENCE country_seq INCREMENT 1 START 1;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
