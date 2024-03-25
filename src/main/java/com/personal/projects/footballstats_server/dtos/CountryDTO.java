@@ -5,7 +5,7 @@ import com.personal.projects.footballstats_server.models.TeamModel;
 
 import java.util.Set;
 
-public class CountryDTO {
+public class CountryDTO extends AbstractDTO{
 
     private Long id;
     private String name;
@@ -66,5 +66,17 @@ public class CountryDTO {
     public CountryDTO setLeagues(Set<LeagueDTO> leagues) {
         this.leagues = leagues;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "CountryDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", flagURL='" + flagURL + '\'' +
+                ", teams=" + teams +
+                ", leagues=" + leagues +
+                '}';
     }
 }

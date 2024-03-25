@@ -2,7 +2,7 @@ package com.personal.projects.footballstats_server.dtos;
 
 import java.util.Set;
 
-public class LeagueDTO {
+public class LeagueDTO extends AbstractDTO{
 
     private Long id;
     private String name;

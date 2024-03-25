@@ -82,4 +82,16 @@ public class CountryModel {
         this.leagues = leagues;
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "CountryModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", flagURL='" + flagURL + '\'' +
+                ", teams=" + teams +
+                ", leagues=" + leagues +
+                '}';
+    }
 }

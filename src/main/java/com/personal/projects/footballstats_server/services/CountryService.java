@@ -20,6 +20,16 @@ public class CountryService {
         this.countryRepository = countryRepository;
     }
 
+    public CountryModel getCountryByName(String name) {
+        try {
+            logger.debug("Country found for name = " + name);
+            return countryRepository.getCountryModelByName(name);
+        } catch (Exception e) {
+            logger.error("Error occurred = " + e.getLocalizedMessage());
+            return null;
+        }
+    }
+
     public List<CountryModel> getAllCountries() {
         logger.debug("Getting all countries");
         return countryRepository.findAll();

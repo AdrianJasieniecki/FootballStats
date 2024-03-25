@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Map;
 
-public class Resp {
+public class Resp<T> {
 
     Logger logger = LoggerFactory.getLogger(Resp.class);
 
@@ -15,7 +15,7 @@ public class Resp {
     private List<String> parameters;
     private int results;
     private Paging paging;
-    private List<Map<String, String>> response;
+    private T response;
 
     static class Paging{
 
@@ -47,7 +47,7 @@ public class Resp {
     public Resp() {
     }
 
-    public Resp(String get, List<String> errors, List<String> parameters, int results, Paging paging, List<Map<String, String>> response) {
+    public Resp(String get, List<String> errors, List<String> parameters, int results, Paging paging, T response) {
         this.get = get;
         this.errors = errors;
         this.parameters = parameters;
@@ -60,7 +60,7 @@ public class Resp {
         return get;
     }
 
-    public Resp setGet(String get) {
+    public Resp<T> setGet(String get) {
         this.get = get;
         return this;
     }
@@ -69,7 +69,7 @@ public class Resp {
         return errors;
     }
 
-    public Resp setErrors(List<String> errors) {
+    public Resp<T> setErrors(List<String> errors) {
         this.errors = errors;
         return this;
     }
@@ -78,7 +78,7 @@ public class Resp {
         return parameters;
     }
 
-    public Resp setParameters(List<String> parameters) {
+    public Resp<T> setParameters(List<String> parameters) {
         this.parameters = parameters;
         return this;
     }
@@ -87,7 +87,7 @@ public class Resp {
         return paging;
     }
 
-    public Resp setPaging(Paging paging) {
+    public Resp<T> setPaging(Paging paging) {
         this.paging = paging;
         return this;
     }
@@ -96,16 +96,16 @@ public class Resp {
         return results;
     }
 
-    public Resp setResults(int results) {
+    public Resp<T> setResults(int results) {
         this.results = results;
         return this;
     }
 
-    public List<Map<String, String>> getResponse() {
+    public T getResponse() {
         return response;
     }
 
-    public Resp setResponse(List<Map<String, String>> response) {
+    public Resp<T> setResponse(T response) {
         this.response = response;
         return this;
     }

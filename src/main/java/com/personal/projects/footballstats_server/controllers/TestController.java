@@ -5,7 +5,7 @@ import com.personal.projects.footballstats_server.management.ResponseHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.personal.projects.footballstats_server.configuration.Constants.COUNTRIES_ENDPOINT;
+import static com.personal.projects.footballstats_server.configuration.Constants.*;
 
 @RestController
 public class TestController {
@@ -18,7 +18,8 @@ public class TestController {
 
     @GetMapping("/")
     public void testCode() {
-//        HTTPClient httpClient = new HTTPClient(responseHandler);
-//        httpClient.performRequestForCountries(COUNTRIES_ENDPOINT);
+        HTTPClient httpClient = new HTTPClient(responseHandler);
+        httpClient.performRequestForCountries(COUNTRIES_ENDPOINT);
+//        httpClient.performRequestForLeagues(LEAGUES_ENDPOINT);
     }
 }

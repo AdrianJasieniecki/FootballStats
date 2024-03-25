@@ -1,17 +1,19 @@
 package com.personal.projects.footballstats_server.management;
 
+import com.personal.projects.footballstats_server.dtos.AbstractDTO;
 import com.personal.projects.footballstats_server.dtos.CountryDTO;
+import com.personal.projects.footballstats_server.dtos.LeagueDTO;
 import com.personal.projects.footballstats_server.mappers.CountryMapper;
+import com.personal.projects.footballstats_server.mappers.LeagueMapper;
 import com.personal.projects.footballstats_server.models.CountryModel;
+import com.personal.projects.footballstats_server.models.LeagueModel;
 import com.personal.projects.footballstats_server.services.CountryService;
+import com.personal.projects.footballstats_server.services.LeagueService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.Map;
-
-import static com.personal.projects.footballstats_server.configuration.Constants.COUNTRIES_ENDPOINT;
+import static com.personal.projects.footballstats_server.configuration.Constants.*;
 
 @Component
 public class ResponseHandler {
@@ -19,34 +21,35 @@ public class ResponseHandler {
     Logger logger = LoggerFactory.getLogger(ResponseHandler.class);
 
     private final CountryService countryService;
+    private final LeagueService leagueService;
 
-    public ResponseHandler(CountryService countryService) {
+    public ResponseHandler(CountryService countryService, LeagueService leagueService) {
         this.countryService = countryService;
+        this.leagueService = leagueService;
     }
 
-    public void handleResponse(String method, List<Map<String, String>> response) {
+    public void handleResponse(String method, AbstractDTO dto) {
         switch (method) {
-            case COUNTRIES_ENDPOINT: {
-                handleCountriesResponse(response);
-            }
+            case COUNTRIES_ENDPOINT -> handleCountriesResponse((CountryDTO) dto);
+            case LEAGUES_ENDPOINT -> handleLeaguesResponse((LeagueDTO) dto);
+            default -> throw new IllegalStateException("Unexpected value: " + method);
         }
     }
 
-    private void handleCountriesResponse(List<Map<String, String>> response) {
+    private void handleCountriesResponse(CountryDTO dto) {
         CountryMapper countryMapper = new CountryMapper();
-        for (Map<String, String> responseMap : response) {
-            String name = responseMap.get("name");
-            String code = responseMap.get("code");
-            String flag = responseMap.get("flag");
-            logger.info("name = " + name + ", code = " + code + ", flag = " + flag);
-            CountryDTO countryDTO = new CountryDTO()
-                    .setName(name)
-                    .setCode(code)
-                    .setFlagURL(flag);
-            CountryModel countryModel = countryMapper.toEntity(countryDTO);
-            if (countryService.addNewCountry(countryModel) != null) {
-                logger.info("success = " + countryModel);
-            }
+        CountryModel countryModel = countryMapper.toEntity(dto);
+        if (countryService.addNewCountry(countryModel) != null) {
+            logger.info("success = " + countryModel);
+        }
+    }
+
+    private void handleLeaguesResponse(LeagueDTO dto) {
+        LeagueMapper leagueMapper = new LeagueMapper();
+        LeagueModel leagueModel = leagueMapper.toEntity(dto);
+        leagueModel.setCountry(countryService.getCountryByName(dto.getCountryDTO().getName()));
+        if (leagueService.addNewLeague(leagueModel) != null) {
+            logger.info("success = " + leagueModel);
         }
     }
 }
