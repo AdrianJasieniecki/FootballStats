@@ -18,7 +18,7 @@ public class TestController {
 
     @GetMapping("/")
     public void testCode() {
-        HTTPClient httpClient = new HTTPClient(responseHandler);
-        httpClient.performRequestForCountries(COUNTRIES_ENDPOINT);
+//        HTTPClient httpClient = new HTTPClient(responseHandler);
+//        httpClient.performRequestForCountries(COUNTRIES_ENDPOINT);
     }
 }

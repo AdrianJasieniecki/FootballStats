@@ -5,8 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
 
-    <include relativeToChangelogFile="true" file="changelogs/TICKET_1.xml"/>
-    <include relativeToChangelogFile="true" file="changelogs/TICKET_2.xml"/>
-    <include relativeToChangelogFile="true" file="changelogs/TICKET_3.xml"/>
-    <include relativeToChangelogFile="true" file="changelogs/TICKET_4.xml"/>
+    <changeSet id="TICKET_4" author="Adrian Jasieniecki">
+        <dropNotNullConstraint tableName="COUNTRY" columnName="country_code"/>
+    </changeSet>
 </databaseChangeLog>
