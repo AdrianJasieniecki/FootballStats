@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+       https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="TICKET_5" author="Adrian Jasieniecki">
+        <sql>
+            CREATE SEQUENCE league_seq INCREMENT 1 START 1;
+        </sql>
+    </changeSet>
+    <changeSet id="TICKET_5.1" author="Adrian Jasieniecki">
+        <renameColumn tableName="LEAGUE" oldColumnName="League_id" newColumnName="league_id"/>
+        <renameColumn tableName="LEAGUE" oldColumnName="League_name" newColumnName="league_name"/>
+        <renameColumn tableName="LEAGUE" oldColumnName="Type" newColumnName="type"/>
+        <renameColumn tableName="LEAGUE" oldColumnName="Logo_URL" newColumnName="logo_URL"/>
+    </changeSet>
+</databaseChangeLog>

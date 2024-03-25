@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+       https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="TICKET_9" author="Adrian Jasieniecki">
+        <dropNotNullConstraint tableName="LEAGUE" columnName="league_name"/>
+        <dropNotNullConstraint tableName="LEAGUE" columnName="type"/>
+        <dropNotNullConstraint tableName="LEAGUE" columnName="logo_url"/>
+        <dropNotNullConstraint tableName="LEAGUE" columnName="country_id"/>
+    </changeSet>
+</databaseChangeLog>

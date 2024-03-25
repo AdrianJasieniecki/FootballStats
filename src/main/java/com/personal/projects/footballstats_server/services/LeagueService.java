@@ -34,10 +34,7 @@ public class LeagueService {
     }
 
     public LeagueModel addNewLeague(LeagueModel leagueModel) {
-        if (!leagueRepository.existsById(leagueModel.getId())) {
-            logger.debug("Adding new league = " + leagueModel);
-            return leagueRepository.save(leagueModel);
-        }else return null;
+        return leagueRepository.save(leagueModel);
     }
 
     public LeagueModel updateLeague(LeagueModel leagueModel) {

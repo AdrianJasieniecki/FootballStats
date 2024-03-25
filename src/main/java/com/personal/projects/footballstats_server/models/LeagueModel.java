@@ -11,23 +11,23 @@ public class LeagueModel {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "league_generator")
     @SequenceGenerator(name = "league_generator", sequenceName = "league_seq", allocationSize = 1)
-    @Column(name = "League_id", nullable = false)
+    @Column(name = "league_id", nullable = false)
     private Long id;
 
-    @Column(name = "League_name")
+    @Column(name = "league_name")
     private String name;
 
-    @Column(name = "Type")
+    @Column(name = "type")
     private String type;
 
-    @Column(name = "Logo_URL")
+    @Column(name = "logo_URL")
     private String logoURL;
 
     @OneToMany(mappedBy = "league")
     private Set<TeamModel> teams;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Country_id", nullable = false)
+    @JoinColumn(name = "country_id", nullable = false)
     private CountryModel country;
 
     public Long getId() {

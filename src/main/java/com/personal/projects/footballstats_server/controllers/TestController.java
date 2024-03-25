@@ -16,10 +16,15 @@ public class TestController {
         this.responseHandler = responseHandler;
     }
 
-    @GetMapping("/")
-    public void testCode() {
+    @GetMapping("/countries")
+    public void getCountries() {
         HTTPClient httpClient = new HTTPClient(responseHandler);
         httpClient.performRequestForCountries(COUNTRIES_ENDPOINT);
-//        httpClient.performRequestForLeagues(LEAGUES_ENDPOINT);
+    }
+
+    @GetMapping("/leagues")
+    public void getLeagues() {
+        HTTPClient httpClient = new HTTPClient(responseHandler);
+        httpClient.performRequestForLeagues(LEAGUES_ENDPOINT);
     }
 }
